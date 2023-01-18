@@ -41,13 +41,20 @@ const AuthForm = ({ mode }: { mode: "signin" | "signup" }) => {
               placeholder="email"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
+              marginBottom="30px"
             />
             <Input
               placeholder="password"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
+              marginBottom="60px"
             />
-            <Button type="submit" colorScheme="green" isLoading={isLoading}>
+            <Button
+              width="100%"
+              type="submit"
+              colorScheme="green"
+              isLoading={isLoading}
+            >
               {mode}
             </Button>
           </form>
