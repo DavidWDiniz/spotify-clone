@@ -4,7 +4,7 @@ import prisma from "./prisma";
 
 export const validateRoute = (handler) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    const token = req.cookies.TRAX_ACCESS_TOKEN;
+    const token = req.cookies[process.env.COOKIE_NAME];
 
     if (token) {
       try {
@@ -20,4 +20,8 @@ export const validateRoute = (handler) => {
     }
     return res.status(401).json({ error: "Not authorized" });
   };
+};
+
+export const validateToken = (token) => {
+  return jwt.verify(token, process.env.JWT_SECRET);
 };

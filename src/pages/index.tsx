@@ -1,14 +1,17 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import GradientLayout from "../components/GradientLayout";
 import prisma from "../lib/prisma";
+import { useMe } from "../lib/hooks";
 
 const Home = ({ artists }) => {
+  const { user } = useMe();
+
   return (
     <GradientLayout
       color="red"
       subtitle="profile"
-      title="David Diniz"
-      description="10 public playlists"
+      title={`${user?.firstName} ${user?.lastName}`}
+      description={`${user?.playlistsCount} public playlists`}
       roundImage
       image="https://github.com/DavidWDiniz.png"
     >
@@ -29,7 +32,7 @@ const Home = ({ artists }) => {
                 padding="15px"
               >
                 <Image
-                  src="https://source.unsplash.com/random/300x300"
+                  src={`https://picsum.photos/400?random=${artist.id}`}
                   borderRadius="100%"
                 />
                 <Box marginTop="20px">
