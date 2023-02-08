@@ -17,9 +17,6 @@ const PlayerBar = () => {
         <Box width="40%">
           {activeSong && <Player songs={songs} activeSong={activeSong} />}
         </Box>
-        <Box width="30%" padding="20px" textAlign="right">
-          Right panel
-        </Box>
       </Flex>
     </Box>
   );
